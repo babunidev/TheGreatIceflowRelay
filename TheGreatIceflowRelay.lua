@@ -1,5 +1,5 @@
 -- TheGreatIceflowRelay.lua
--- Turtle WoW Lua 5.0 compatible
+-- World of Warcraft 1.12 / Lua 5.0 compatible
 -- /iceflow ready arms the addon, stepping into the starting stage begins the run.
 -- Checkpoint messages -> party (if grouped) or local chat.
 -- Ball messages -> local only.

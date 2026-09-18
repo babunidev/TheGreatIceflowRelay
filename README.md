@@ -2,7 +2,7 @@ The Great Iceflow Relay
 
 Hi yall,
 
-This is a little relay ball game addon for Turtle WoW, played on Iceflow Lake in Dun Morogh.
+This is a little relay ball game add-on for World of Warcraft 1.12, played on Iceflow Lake in Dun Morogh.
 It’s a simple but fun RP activity where you and your friends run through checkpoints, pass the ball around, and try to score the most Iceflow Shards while avoiding penalties.
 
 I made this addon because I love throwing the ball in WoW, but just passing it back and forth got a little stale. So I thought, why not turn it into a proper mini-game? I’m new to addon development and not much of a coder, so I used AI help to put this together. It’s pretty simple, mostly chat commands, but I think it adds a cute bit of gameplay for anyone who enjoys RP events and silly fun with the ball.
@@ -69,6 +69,6 @@ https://imgur.com/a/eQcNdPX
 
 ✨ Closing words
 
-This addon is meant as a light RP mini-game for Turtle WoW. It’s not super polished, but it’s fun if you like silly challenges with friends.
+This addon is meant as a light RP mini-game for World of Warcraft 1.12. It’s not super polished, but it’s fun if you like silly challenges with friends.
 
 Wishing yall lots of joy and many Iceflow Shards in Azeroth!
