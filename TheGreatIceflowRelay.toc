@@ -1,7 +1,7 @@
 ## Interface: 11200
 ## Title: The Great Iceflow Relay
 ## Notes: type /iceflow rules for the rules and /iceflow for th commands.
-## Author: BabuniGaming
+## Author: Babuni.dev
 ## Version: 0.72
 
 
