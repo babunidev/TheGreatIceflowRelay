@@ -75,6 +75,31 @@ This addon is meant as a light RP mini-game for World of Warcraft 1.12. It’s n
 
 Wishing yall lots of joy and many Iceflow Shards in Azeroth!
 
+## Current source snapshot (v0.72)
+
+**Scope:** The source targets a World of Warcraft 1.12 / Lua 5.0-style client. The source has **not** been retested in game for this documentation review. The rules below describe implementation, which sometimes differs from the event's idealized group-play description above.
+
+1. Every participant who installs and arms the addon tracks their **own** run. The code does not send a synchronized scoreboard, coordinate other players' state, or enforce that every player visits the same stops.
+2. Four intermediate checkpoints can each award **one shard once per run**. The current code accepts them in any order and allows the player to finish without visiting all four.
+3. Receiving an item matching the **Heavy Leather Ball** icon through `ITEM_PUSH` can award **one shard**, subject to a 0.1-second duplicate-event guard.
+4. If a Heavy Leather Ball is found in bags while a run is active, the current polling implementation adds **one penalty per two-second check**. It does **not** measure elapsed holding seconds precisely or provide a grace period.
+5. The ~28-yard proximity test uses `CheckInteractDistance` on **your current target**, whether or not that unit is a teammate. A nearby untargeted player is not checked.
+6. The finish message reports net shards, total earned shards, and accumulated penalties to party/raid chat (or locally when solo). There is no built-in ranking of multiple finishers.
+
+### Installation and setup
+
+Install `TheGreatIceflowRelay.lua` and `TheGreatIceflowRelay.toc` directly inside `Interface/AddOns/TheGreatIceflowRelay/`, restart your game and enable the addon. The addon's manifest declares interface `11200` and version `0.72`.
+
+Use `/iceflow rules` to read the in-game rules and `/iceflow checkpoints` to print every checkpoint rectangle. Use `/iceflow ready` to arm the run and enter the start area. The addon then polls for checkpoints, bag contents, and proximity. `/iceflow end` stops it; `/iceflow pos`, `check`, and `ballcheck` provide diagnostics.
+
+### Project record
+
+The creator's first-person story above is preserved as historical testimony. The technical sections distinguish original ambitions from the implementation. The GitHub development journal documents observed iterations and admits what cannot be verified.
+
+- [Creative concept](CONCEPT.md) · [Experience design](docs/DESIGN.md) · [Course and content](docs/CONTENT.md)
+- [Architecture](docs/ARCHITECTURE.md) · [Decision record](docs/DECISIONS.md) · [Development journal](docs/DEVLOG.md)
+- [Roadmap](ROADMAP.md) · [Changelog](CHANGELOG.md) · [Human–AI collaboration](docs/AI_COLLABORATION.md) · [Agent guidelines](AGENTS.md)
+
 ## Development documentation
 
 - [Concept](CONCEPT.md) · [Roadmap](ROADMAP.md) · [Changelog](CHANGELOG.md)
