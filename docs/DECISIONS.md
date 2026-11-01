@@ -1,44 +1,51 @@
-# The Great Iceflow Relay — decisions and open questions
+# The Great Iceflow Relay — decisions
 
-**Creator:** Babuni.dev. This register separates what the creator actually stated, what code demonstrates, and what is still undecided.
+**Creative:** Babuni  
+**Purpose:** Separate the creative's confirmed choices from implementation observations and unresolved proposals.
 
-## Creator-authored direction (direct evidence)
+## Established creative direction
 
-The original, first-person [README](../README.md) explains that passing a ball around in WoW became repetitive, inspiring a **proper mini-game** in Iceflow Lake. The author describes enjoying RP activities and small group challenges, specifically passing balls among pairs or three-player triangles. The same README explicitly says AI helped with coding because the creator was new to addon development.
-
-**This is creator testimony**, not an AI idea inferred from an implementation.
-
-## Implemented approaches (no inferred approval dialogue)
-
-| Implemented approach | Code / Git evidence | Important qualification |
+| Decision | Basis | Status |
 | --- | --- | --- |
-| Use in-game landmarks as checkpoint triggers | `checkpoints`, `CheckCheckpoint` | Current boundaries are rectangles; earliest committed prototype used triangles (`5c86d98`) |
-| Arm before crossing start | `/iceflow ready`, `armed` and `runActive` | Historical motivations for this split are not recorded |
-| Reward catches and intermediate stops | `OnItemPush`, `visitedCheckpoints` | Catch detection is icon/event-based |
-| Give penalties for ball holding | `CheckBallInInventory` | One per ~2-second poll, not measured seconds |
-| Discourage closeness | `CheckTargetDistance` | Checks targeted unit, not every teammate |
-| Communicate in existing party/raid channels | `RelayGroupMessage`, `6b69b48` | Messaging is not multi-client state synchronization |
-| Save little beyond the play session | No SavedVariables in TOC | Current design is session-local; not proof of a rejected save system |
+| Make a game from the existing WoW ball-throwing interaction | First-person account of playing catch with my brother, running and jumping while passing | Established creative origin |
+| Build rules around a ball that cannot be stopped in flight | Creative's explanation of the game's limits | Established design principle |
+| Keep the full name **The Great Iceflow Relay** | Explicit naming choice, reaffirmed 2026-10-31 | Confirmed |
+| Use the Iceflow Lake / Brewnall Village gnomish setting | Original course and current creative account | Established setting |
+| Reward movement and catches while penalizing holding and proximity | Original game rules; current scoring source | Established concept |
+| Explore bringing the game to a modern World of Warcraft client | Explicit direction, 2026-11-01 | **Intended**, feasibility not yet assessed |
 
-## Source-based iteration (documented evidence)
+The creative decisions above are not claims that every rule is enforced perfectly by v0.72.
 
-- The first Lua commit on **2025-09-11** used **five triangle-shaped checkpoint regions**.
-- Later 2025-09-11 changes converted the course to **six rectangular regions** with separate start and finish, a local shard count and repeated checkpoint logic.
-- Successive changes exposed distinct **armed** versus **running** states and added bag detection, an item-event reward and a combined penalty accounting approach.
-- On **2025-09-13**, commits revised finish-message wording and added **raid** messaging alongside **party** output.
+## Implemented technical approaches
 
-These transitions are verifiable from commit diffs; the original discussions, disagreements and rejected proposals behind them have not been recovered.
+| Feature | Source evidence | Qualification |
+| --- | --- | --- |
+| Six rectangular course zones | `checkpoints`, `CheckCheckpoint` | Earlier prototype used triangles |
+| Armed start and local run state | `/iceflow ready`, `StartRun` | No cross-client start synchronization |
+| Once-per-stop checkpoint shards | `visitedCheckpoints` | No forced order or requirement to complete all middle stops |
+| Catch shard | `OnItemPush` | Matching event/icon, not proof of a complete player-to-player exchange |
+| Carrying penalty | `CheckBallInInventory` | One penalty per ~2-second check with ball in inventory |
+| Spacing penalty | `CheckTargetDistance` | Checks only current target; target need not be a teammate |
+| Party/raid announcements | `RelayGroupMessage` | No synchronized shared scoreboard |
 
-## Creator decisions still required, not assumptions
+Implementation demonstrates what the code does, not who first suggested every function or an unrecorded design approval.
 
-- Should the course be a strictly ordered race, or intentionally allow route freedom?
-- Should holding a ball incur penalties by elapsed time, frequency of checks, or only after a threshold?
-- Must “too close” mean within 28 yards of **any teammate**, and how would we detect that reliably?
-- Do participants need an authoritative/shared leaderboard, or is friendly local scoring sufficient?
-- Should the existing English item/zone names be generalized for localization?
+## Historical iteration
 
-The documentation review did **not** answer these on Babuni.dev's behalf.
+On **11 September 2025**, the earliest checkpoint geometry was triangular; subsequent commits changed the structure to rectangular regions and separate start/finish areas. Later commits added event-based catching, revised penalties and improved group announcements. Those changes are recorded in [the development journal](DEVLOG.md). The original discussion behind each technical change has not been recovered.
 
-## Review decision — 2026-10-26
+## Questions still open
 
-The assistant documented discrepancies and historical development without editing gameplay. This is a documentation action, not evidence of user approval of future feature changes.
+- Which modern WoW client should host the next version, and does it retain a suitable ball item and throw interaction?
+- Can item receipts, map locations and close-range detection be implemented reliably in that client?
+- Should the four middle checkpoints become mandatory or ordered?
+- Should penalty timing, chat volume or score sharing change?
+- What compromises preserve the original enjoyable game when some 1.12 assumptions no longer hold?
+
+These are **undecided**. Investigating a modern edition does not approve any particular redesign.
+
+## Documentation decisions
+
+**2026-10-26:** AI-assisted reconstruction separated source behavior from historical intention without modifying gameplay.
+
+**2026-11-01:** The creative supplied additional first-person origin details and confirmed an intention to investigate a modern-client edition. AI revised the documentation accordingly; gameplay behavior and compatibility remain untested.

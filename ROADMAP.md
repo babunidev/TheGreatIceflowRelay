@@ -1,36 +1,49 @@
 # The Great Iceflow Relay — roadmap
 
-**Creator:** Babuni.dev  
-**Interpretation:** This is an evidence-based verification backlog, **not** a promise or approval of new features.
+**Creative direction:** Babuni  
+**Source baseline:** v0.72 for World of Warcraft 1.12.  
+**Status:** Original game preserved; modern-client investigation planned.
 
-## Present source baseline
+## 1. Preserve the original game — completed as documentation
 
-- The manifest advertises addon version **0.72**, WoW interface **11200**.
-- Six checkpoint rectangles in Dun Morogh; start and finish near Brewnall Village.
-- Local score made of catch/checkpoint shards minus inventory-hold and target-distance penalties.
-- `/iceflow` commands, party/raid chat summaries and item receipt handling.
-- No test suite is present in the inspected repository.
+- [x] Record the ball-passing origin with my brother and the limits that inspired the rules.
+- [x] Document the six course locations, scoring system, commands and original game concept.
+- [x] Identify where source behavior differs from the intended social rules.
+- [x] Preserve dated development history and distinguish AI coding assistance from creative direction.
 
-## First: verify the existing game in-client
+These checkmarks refer to **documentation**, not verified modern-client gameplay.
 
-- Install on the target 1.12-compatible client and confirm slash command registration and rules display.
-- Travel the [six checkpoints](docs/CONTENT.md) and test detection near rectangle edges.
-- Check the Heavy Leather Ball's item name and `ITEM_PUSH` icon payload on the actual client.
-- Verify catch shard awards, inventory penalty timing, score arithmetic and finishing behavior.
-- Test two clients in a party, then raid, documenting what each participant sees.
-- Verify `CheckInteractDistance` thresholds and how NPC/teammate targets affect penalties.
-- Test starting, ending, restarting and re-arming while inside the starting rectangle.
+## 2. Verify the legacy source — not yet done
 
-## Then: decisions for the creator, not established requirements
+- [ ] Test the addon on a specified 1.12-compatible client and record the client build.
+- [ ] Verify start/finish boundaries, all four intermediate checkpoints and repeated runs.
+- [ ] Test the Heavy Leather Ball transfer, `ITEM_PUSH` payload, shard award and bag-holding penalties.
+- [ ] Check the target-distance behavior with teammates, other players and NPC targets.
+- [ ] Observe party/raid announcements and compare scores across two or more clients.
+- [ ] Document any discrepancies with reproducible observations rather than assumptions.
 
-1. Should participants be **required to visit all four middle checkpoints**, and in a fixed order?
-2. Should the proximity rule be about the **current target** or truly about **all teammates**? If the latter, is it technically feasible in the client?
-3. Does holding the ball cost a point **per polling tick**, per full second, or only after a grace period?
-4. Should a future edition have a synchronized group scoreboard, referee mode or standings?
-5. Should the route map, checkpoint markers and on-screen status be available inside the game?
+## 3. Investigate a modern WoW edition — intended direction
 
-None of these decisions is recorded as accepted. Keep v0.72 behavior stable until the creator chooses which, if any, changes to pursue.
+- [ ] Identify the intended modern client or clients and their supported addon environment.
+- [ ] Determine whether the equivalent **throwable ball** exists, can be obtained, transferred and detected by an addon.
+- [ ] Research current bag, item-receipt, event, map-coordinate, zone and chat APIs.
+- [ ] Establish what is protected or impossible for addons, especially ball interaction, player distance and referee automation.
+- [ ] Decide whether the original six-stop course still makes sense in the target world and map.
+- [ ] Produce a feasibility report separating **possible**, **requires redesign**, and **not possible with addons alone**.
+- [ ] Only then scope a port, keeping its implementation separate from the preserved 1.12 release.
 
-## Completion criteria for a future verified release
+The goal of returning to the game on a modern client is **approved as a direction**. No particular client, API design, feature rewrite or release date has been approved.
 
-Record exact client build, party size, route, observed shard and penalty transitions, expected vs actual results, and a tested commit. A static code review is insufficient to mark gameplay verified.
+## 4. Open design questions
+
+- Should a future relay require all four intermediate checkpoints, and in what order?
+- Should holding penalties be based on actual elapsed time rather than polling ticks?
+- Can teammate proximity be checked reliably, or should a modern edition use a different fair-play rule?
+- Is a shared scoreboard necessary, or should scores remain local with a human referee?
+- Would better map markers or quieter chat feedback preserve the game's simplicity?
+
+These are questions for future evaluation, **not accepted feature changes**.
+
+## Verification standard
+
+For every future implementation, record the exact client/build, test setup, players involved, expected behavior, observed behavior, affected files and commit. Do not describe a code-only review as an in-game test.

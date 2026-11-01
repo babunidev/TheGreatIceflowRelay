@@ -1,27 +1,29 @@
-# The Great Iceflow Relay — collaboration and attribution
+# The Great Iceflow Relay — human–AI collaboration
 
-**Creative author:** Babuni.dev.  
-**Acknowledged assistant role:** AI-assisted implementation, stated by the author in the original 2025 README.
+**Creative and author:** Babuni  
+**AI contribution:** Original coding assistance acknowledged in the 2025 README; later technical reviews and documentation revisions.
 
-## Human direction: direct testimony
+## Where the game came from
 
-Babuni.dev describes enjoying the game's ball throwing but wanting something more involved than passing it back and forth. The creator turned this into a lake-based relay with checkpoints, score rules, penalties and light-hearted multiplayer social play. The 2025 README is first-person source material; preserve it as the primary testimony of the creative decision.
+Throwing a ball around World of Warcraft with my brother led to the question of whether we could turn it into a proper game. Running, jumping and passing were already fun, but the inability to stop a ball mid-flight meant the rules had to be different from an ordinary sport. That limitation inspired my relay around Iceflow Lake: checkpoints, catches, shards and penalties.
 
-## AI contribution: what is and is not evidenced
+The conception of the game, its social purpose and its gnomish setting belong to the human creative. AI did not originate that idea.
 
-The author says they used AI help to **code** the addon. The repository does **not** contain a reliable prompt-by-prompt log that assigns each Lua function or rule to a specific human or assistant utterance. Don't fabricate those attributions. Code in a repository proves what was committed, not whether a particular implementation mechanism was originally suggested by the assistant or requested in detail by the human.
+## How AI contributed
 
-In this **2026-10-26 documentation session**, an assistant inspected current code, TOC, README, representative Git history and drafts of prior scaffold files. It created long-form documentation, documented known risks and open design questions, and committed Markdown only. This contribution should be credited as editorial/technical analysis, **not conception**.
+The [original 2025 README](https://github.com/babunidev/TheGreatIceflowRelay/blob/03b275d/README.md) explicitly acknowledges AI help with Lua coding. That is evidence of implementation assistance, not a detailed map of who wrote or suggested every line. The surviving Git history records frequent technical revisions but not a complete conversation, list of rejected proposals or full test log.
 
-## Provenance standard for future iterations
+On **26 October 2026**, AI inspected the source and Git history to build a more substantial documentation set. It described code behavior and limitations without changing the runtime. On **1 November 2026**, the creative supplied additional personal recollections and the intention to investigate a modern WoW version; AI revised the writing and technical references to reflect those choices.
 
-Each substantial project record should show the creator's explicit request and constraints; AI proposals; alternatives, disagreements and corrections; the creator's accepted or rejected decisions; actual changed paths and commit; and execution/test evidence. When missing, label the reconstruction as uncertain and link the nearest primary evidence.
+## What the project record should distinguish
 
-Never publish raw private chat logs, secrets, other players' private information or credentials. Do not modify the authorial first-person origin story without Babuni.dev's approval.
+- **Creative direction:** The human creative's own idea, setting, goals, rules and decisions.
+- **AI assistance:** Research, coding, editing and technical analysis actually carried out by AI.
+- **Iteration:** Approaches visible in commits, with motives identified only when supported.
+- **Decisions:** Explicitly confirmed choices versus suggestions still under discussion.
+- **Implementation:** Files and commits that actually changed.
+- **Verification:** Tests that actually ran, including client/build, steps and observations.
 
-## Reference trail
+Documentation changes do not establish game compatibility. An intended modern-client port is not an implemented modern-client port. Preserve that distinction in every future update.
 
-- `README.md` — primary creator explanation and acknowledged AI assistance.
-- `TheGreatIceflowRelay.lua` and `.toc` — technical implementation.
-- `docs/DEVLOG.md` — dated, qualified reconstruction from Git commits.
-- `docs/DECISIONS.md` — separates original direction from implementation and proposals.
+Historical gaps should be named as **retrospective reconstruction**, never filled by imagined quotes, test outcomes or conversations. Keep published documentation free of private chats, personal details and credentials.

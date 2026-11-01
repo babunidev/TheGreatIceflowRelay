@@ -1,30 +1,32 @@
-# The Great Iceflow Relay — creative concept
+# The Great Iceflow Relay — concept
 
-**Creative author:** Babuni.dev  
-**Format:** cooperative/competitive in-world roleplay event supported by a small World of Warcraft 1.12 addon.
+**Creative:** Babuni  
+**Format:** A social ball-passing relay inside World of Warcraft, supported by a lightweight addon.
 
-## Where the idea began
+## The idea
 
-The creator explains the motivation in their own words in [README.md](README.md): they enjoyed **throwing a ball around in WoW**, but simply passing it back and forth began to feel stale. Instead of replacing the social activity with a separate video game, they imagined rules for playing with that existing object in the game world.
+Playing catch with my brother in WoW was surprisingly enjoyable. We would throw a ball, run about, jump and throw it back, making a game of the movement even before there were any rules. Eventually I started wondering what a *real* ball game could look like if those were the only tools available.
 
-That creative leap—to turn an informal player ritual into a structured relay with an actual course, points and consequences—belongs to Babuni.dev. The original README also openly acknowledges AI assistance with **coding**. This is one of the clearest first-person records of the project's creative authorship, so preserve its voice.
+The game imposes its own peculiar boundaries: the ball is an inventory item, and a throw cannot be interrupted or defended against in mid-flight. Those limits ruled out many familiar ball sports. Instead of fighting the limitations, I built the competition around movement, passing, collecting points and avoiding penalties. The resulting rules are unusual because they belong to this particular world.
 
-## The experience the project aims for
+Iceflow Lake in Dun Morogh became the pitch. Its shores and small landmarks provided a natural course, while the nearby gnomish setting gave the competition its character and name: **The Great Iceflow Relay**. Determination to make the idea work became part of the project itself. AI helped implement the addon, and the original game reached a playable, enjoyable form.
 
-Friends gather at **Iceflow Lake in Dun Morogh**, near Brewnall Village, and pass a **Heavy Leather Ball** while navigating a six-stop course. The activity balances two impulses: collect **Iceflow Shards** through catches and intermediate stops; avoid penalties by passing quickly and spreading out. A finish message turns the improvised chase into a memorable group moment.
+## The game
 
-The original description proposes pairs or small groups, including three people passing multiple balls in a triangle. That is an **event concept**: the addon is currently per-player, and participants still organize the shared physical game themselves.
+Players begin near Brewnall Village, circulate one or more Heavy Leather Balls, and move between four intermediate checkpoints before returning to a finishing stage. A player earns **Iceflow Shards** by reaching a new checkpoint and by receiving the ball. Holding the ball during scoring checks and getting too close incur penalties. The result is the difference between shards earned and penalties collected.
 
-## Design pillars
+The spirit of the game is social: two people can play catch across the course, while three or more can improvise patterns, even with several balls. The gnomish relay is a shared activity first and a scoreboard second.
 
-- **In-world play:** use the actual lake, the actual game item, game emotes and social proximity.
-- **Lightweight invitation:** chat commands and printed coordinates, no custom arena or complex UI.
-- **Roleplay before competitive rigor:** the joy of the activity matters more than a perfectly synchronized esport rules engine.
-- **Visible consequences:** catches and checkpoint entries build shards; holding and closeness lead to penalties.
-- **Player ownership:** the creator's course and rules define the activity; AI-assisted technical execution is a separate contribution.
+## Design principles
 
-## Boundaries and accuracy
+- **Work with what exists.** Use WoW's ordinary movement, inventory item, throw interaction, map locations and chat.
+- **Make the limitations meaningful.** Reward passing and movement rather than pretending the ball has simulated physics or defensive controls.
+- **Give the world a role.** Iceflow Lake and its landmarks form the playing field.
+- **Keep participation lightweight.** A few chat commands and visible announcements are enough to run an event.
+- **Leave room for people.** Friends can organize passing, routes and fair play without making the addon a fully automated referee.
 
-This is not a stand-alone game or automated group tournament. Current code uses local state on each client and does not authenticate ball transfers between players, enforce the checkpoint order or identify every nearby teammate. Those gaps do not erase the original concept; they are part of the development story. See [architecture](docs/ARCHITECTURE.md) and [design decisions](docs/DECISIONS.md).
+## What exists and what comes next
 
-The repository records a 0.72 addon. No in-game multiplayer validation occurred during the 2026-10-26 documentation reconstruction.
+The source provides a **v0.72 addon for WoW 1.12**, with local scoring, checkpoint rectangles, inventory polling and chat messages. Its actual proximity and catch detection are narrower than the ideal social rules. See [README](README.md) and [architecture](docs/ARCHITECTURE.md) for those limitations.
+
+A **modern WoW adaptation is intended**, subject to investigation of the target client's item mechanics and addon APIs. This is a future direction, not an implemented port or verified compatibility claim.

@@ -1,39 +1,48 @@
-# The Great Iceflow Relay — architecture (v0.72)
+# The Great Iceflow Relay — architecture
 
-**Evidence:** `TheGreatIceflowRelay.lua`, `TheGreatIceflowRelay.toc`; source inspected 2026-10-26. **No game-client execution in this review.**
+**Source version:** 0.72 · Interface 11200 · World of Warcraft 1.12 / Lua 5.0-style client  
+**Evidence:** `TheGreatIceflowRelay.lua` and `TheGreatIceflowRelay.toc` inspected on 2026-11-01. This is static analysis, **not an in-game test**.
 
-## Runtime layout
+## Runtime overview
 
-A single Lua script creates `TheGreatIceflowRelayFrame`, registers the `ITEM_PUSH` event, installs `OnEvent` and `OnUpdate` handlers, and registers the `/iceflow` command. The frame starts hidden. `/iceflow ready` resets local state, sets `armed = true`, and shows the frame. Entering the starting rectangle while armed switches to `runActive = true`.
+The addon consists of one Lua file and a TOC manifest. It creates `TheGreatIceflowRelayFrame`, registers `ITEM_PUSH`, attaches `OnEvent` and `OnUpdate`, and registers `/iceflow` commands. The frame begins hidden.
 
-The frame's update handler checks elapsed `GetTime()` against `CHECK_INTERVAL = 2` and calls three functions while armed or active:
+The `ready` command resets local counters, sets `armed = true` and shows the frame. Crossing the start rectangle while armed sets `runActive = true`. The update handler runs when armed or active and, after approximately `CHECK_INTERVAL = 2` seconds, performs three checks.
 
-1. **`CheckCheckpoint`:** `SetMapZoom(0)` and `SetMapToCurrentZone()` precede `GetPlayerMapPosition("player")`; normalized coordinates are multiplied by 100. Automatic checkpoint handling also checks `GetZoneText() == "Dun Morogh"`. Intermediate areas award +1 only on first visit in a run. Finish computes `playerShards - totalPenalty`, sends summary, and disables active run.
-2. **`CheckBallInInventory(true)`:** scans bag links for the literal substring `Heavy Leather Ball`. During a run, every poll where a ball is present adds **1 to `totalBallTime` and 1 to `totalPenalty`**. Despite its name and comments, `totalBallTime` is a tick count, not measured seconds; a two-second poll makes any UI “sec” wording approximate/inaccurate.
-3. **`CheckTargetDistance`:** checks current `target` with the client interaction-distance API indices 1–4, then adds 1 penalty on a positive result; if out of range, it prints “Distance ok!”. It does **not** iterate party/raid members or assert target membership.
+| Check | Mechanism | Outcome |
+| --- | --- | --- |
+| `CheckCheckpoint` | Sets current map, reads normalized `GetPlayerMapPosition("player")` and checks `GetZoneText() == "Dun Morogh"` | Starts run, grants first-visit checkpoint shards or finishes run |
+| `CheckBallInInventory(true)` | Scans bag links for the literal English `Heavy Leather Ball` | When active and found, adds 1 penalty on that polling pass |
+| `CheckTargetDistance` | Calls `CheckInteractDistance("target", 1..4)` on the selected target | Adds 1 penalty on a positive close-distance result; no group scan |
 
-`ITEM_PUSH` separately calls `OnItemPush`, which looks for `INV_Misc_ThrowingBall_01` in the second event argument and adds one shard when active and outside a 0.1-second duplicate-event window. This is an event/icon check; not proof that the player actually received the specific named ball under every client/localization scenario.
+Separately, the `ITEM_PUSH` event handler inspects the second event argument for `INV_Misc_ThrowingBall_01`. When the run is active and the event is outside a 0.1-second duplicate guard, it adds **1 shard**. It does not validate the sender or complete ball-transfer semantics.
 
-## State and lifecycle
+## State and scoring
 
-- **Run:** `armed`, `runActive`, `startTriggered`, `finishTriggered`.
-- **Score:** `playerShards`, `totalPenalty`, per-run table `visitedCheckpoints`.
-- **Item/clock:** `hasBall`, `totalBallTime`, `lastCheck`, `lastBallCatch`.
-- **Persistence:** no saved-variable declaration, network protocol or shared scoreboard is implemented. Reloading resets run state.
-- **End:** `/iceflow end` hides frame/disarms; finishing sets `runActive = false`, while the frame may remain visible and `armed` still true.
+- Run flags: `armed`, `runActive`, `startTriggered`, `finishTriggered`.
+- Rewards: `playerShards`, `visitedCheckpoints` (once for each middle landmark).
+- Penalties: `totalPenalty`; `totalBallTime` is incremented per **poll**, not per elapsed second despite older wording.
+- Timing and inventory: `hasBall`, `lastCheck`, `lastBallCatch`.
+- Finish: `netShards = playerShards - totalPenalty`, announced to the group or printed locally.
 
-## Chat and multiplayer boundary
+There are no declared saved variables, addon communication messages, network-shared score tables or standings. A reload resets runtime state.
 
-`RelayGroupMessage` uses `RAID` if in a raid, else `PARTY`, else local chat. `RelayLocalMessage` always prints locally. All score computations happen **on the local player’s machine**. Party/raid chat displays results; it is not synchronization.
+## Multiplayer and lifecycle boundaries
 
-## Behavior discrepancies to test or decide
+`RelayGroupMessage` sends to **RAID** when raiding, otherwise **PARTY** when grouped, otherwise local chat. `RelayLocalMessage` prints locally. Each client independently decides when its own run starts, gains points and finishes.
 
-- No requirement for visiting all intermediate checkpoints or visiting them in order before finish.
-- A player can re-enter the start after a finished run while still armed, potentially starting again.
-- Proximity is tested only against the current target, which may be a nonplayer.
-- `/iceflow check` tests coordinates without the automatic Dun Morogh zone check.
-- Area boundaries use small, axis-aligned rectangles, not world-space yard radii.
-- Polling may skip brief boundary crossings or ball possession between two checks.
-- The interface number is **11200**; modern addon API behavior is not implied.
+After finishing, `runActive` becomes false, while `armed` remains true; re-entering the start can initiate another run. `/iceflow end` disarms, stops scoring and hides the frame.
 
-These are code observations and possible effects, not measured game-client failures.
+## Known discrepancies and potential failure points
+
+- The middle checkpoints have no enforced order, and reaching all four is not required to finish.
+- The distance test applies to the **current target**, which may be an NPC or other non-teammate.
+- Bag holding incurs penalties per polling tick; `ballcheck`'s “sec” output is therefore misleading.
+- `/iceflow check` tests coordinate rectangles without the normal automatic zone guard.
+- Map rectangles are **not** yard-distance areas. Brief crossings can fall between polling passes.
+- Item name, icon, zone text, map APIs and legacy events require real client validation.
+- Existing 1.12 interfaces say nothing by themselves about modern WoW API compatibility.
+
+## Modern-client investigation
+
+Before porting, verify the exact target build, throwable item behavior, modern bag/inventory event and map APIs, protected operations, communication restrictions and any ability to evaluate teammate distance. Reproducing the original **social game** may be possible even if individual technical shortcuts must change. No modern implementation or test is recorded yet.
