@@ -36,3 +36,7 @@ The creative conceived the game and directed its rules. AI assisted with Lua imp
 4. For substantive code changes, update affected documentation, including `CHANGELOG.md`, `docs/DEVLOG.md` and `docs/DECISIONS.md`.
 5. Record tested client/build, steps, expected/observed behavior and commit when available. Static inspection is not a gameplay test.
 6. Preserve the license, historical credits and publication safety. Never expose private chat logs, secrets or personal information.
+
+## Repository-local documentation standard
+
+Before writing or changing project documentation, read [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md). These rules travel with this repository and do not depend on the babuni.dev ChatGPT Project. Preserve all project-specific technical, creative, canon, safety, licensing, and historical rules in this file; follow the linked standard for public first-person narrative, human–AI attribution, concise development journals, decision records, and evidence-based verification. **Babuni** is the human creative; **babuni.dev** is the website/portfolio, not the person. Preserve third-party credits and historical legal notices. References above to a dated “documentation-only audit” describe that past task, not a permanent ban on later authorized implementation.
