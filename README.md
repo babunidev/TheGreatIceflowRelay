@@ -1,10 +1,10 @@
 # The Great Iceflow Relay
 
-**A gnomish ball game in World of Warcraft**
+A gnomish ball game on Iceflow Lake in Dun Morogh. Players run between landmarks, pass the ball and collect Iceflow Shards to score.
 
 **Creative:** Babuni  
 **Original addon:** v0.72 · World of Warcraft 1.12 · Lua 5.0  
-**Status:** Legacy game preserved; a modern-client adaptation is intended but not yet assessed or implemented.
+**Status:** The original game is preserved. A modern-client adaptation is planned, and feasibility still needs assessment.
 
 ## How it began
 
