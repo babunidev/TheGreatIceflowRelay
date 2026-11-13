@@ -1,6 +1,8 @@
 # The Great Iceflow Relay — human–AI collaboration
 
-**Creative and author:** Babuni  
+Follow [the documentation standard](DOCUMENTATION.md) for first-person author voice throughout project documentation, factual changelogs, and naming the AI tool and verified model for each contribution.
+
+**Creative and author:** Babuni
 **AI contribution:** Original coding assistance acknowledged in the 2025 README; later technical reviews and documentation revisions.
 
 ## Where the game came from
