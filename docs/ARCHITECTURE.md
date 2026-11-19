@@ -43,6 +43,6 @@ After finishing, `runActive` becomes false, while `armed` remains true; re-enter
 - Item name, icon, zone text, map APIs and legacy events require real client validation.
 - Existing 1.12 interfaces say nothing by themselves about modern WoW API compatibility.
 
-## Modern-client investigation
+## Proposed Forever edition
 
-Before porting, verify the exact target build, throwable item behavior, modern bag/inventory event and map APIs, protected operations, communication restrictions and any ability to evaluate teammate distance. Reproducing the original **social game** may be possible even if individual technical shortcuts must change. No modern implementation or test is recorded yet.
+WoW Forever is the intended client. The 1.12 files described above stay as they are. [The feasibility note](FOREVER.md) is the proposal for a separate edition: replace the legacy calls, keep rectangular scoring, and add map pins plus one tracked waypoint. World flares are a hand-placed group mark beside those zones. That note is public research from 2026-11-19. It is not an implementation, and it is not an in-game test. A live survey still has to confirm the build, the coordinates, a real throw, and what the guide actually shows.

@@ -36,3 +36,11 @@ During an earlier documentation review on **26 October 2026**, AI examined the c
 On **1 November 2026**, more of the memory behind the idea was brought into the documentation: playing catch with my brother, moving and jumping while passing, and the challenge of designing a game where nobody could stop a ball in flight. The project name, **The Great Iceflow Relay**, remains deliberate; it describes a gnomish ball game, not a generic passing utility.
 
 The documentation was revised with AI editorial assistance to make the rules easier to understand and to keep the historical story in my perspective. A modern WoW edition is now an explicit goal to investigate. No modern port was built, no client feasibility was established and no gameplay tests were performed as part of this documentation update.
+
+## 19 November 2026 — WoW Forever, and a course people can see
+
+The next edition has a client now. WoW Forever is where I want the relay to live, beside the preserved 1.12 game. Public Forever data still shows the lake and the Heavy Leather Ball. A real throw, the old rectangles, and the party messages have not been tried in a client.
+
+The other half of the request was the part that always nagged during a run: the spot that awarded the shard was invisible. Cursor (Grok 4.7) compared the current addon with public Forever API notes and drafted [the feasibility note](FOREVER.md). The rectangles stay the scoring zones. Map pins and a single tracked waypoint are the guide I want on top of them. The familiar group flares can mark the ground for everyone else, and only after a person clicks that ground. Addon code cannot drop them on the coordinates, and it cannot read them back to award points.
+
+No Lua or TOC file changed. No Forever build was loaded for this note.

@@ -2,6 +2,13 @@
 
 **Creative:** Babuni
 
+## 2026-11-19 — WoW Forever roadmap
+
+- Named WoW Forever as the intended client for a separate edition.
+- Added a feasibility note that keeps the 1.12 scoring rectangles and plans visible course guidance: map pins, one tracked waypoint, and hand-placed world flares beside those zones.
+- Updated the roadmap, decisions, architecture pointer, README status, concept, design note, documentation map, contributor guidance, development journal, and collaboration record.
+- **Documentation only:** no Lua, TOC, or license changes, and no game-client test. Cursor (Grok 4.7).
+
 ## 2026-11-19 — documentation moved into `docs/`
 
 - Moved `CONCEPT.md` and `ROADMAP.md` into `docs/`. The root keeps only `README.md`, `AGENTS.md`, `LICENSE` and `CHANGELOG.md`; links to the moved files and the documentation rules in `AGENTS.md` were updated. No code changed. Claude Code (Claude Opus 5.5).

@@ -31,6 +31,6 @@ A player-organized event may use its own understanding of fairness. Describe tha
 
 ## Usability and future considerations
 
-The lightweight slash-command approach suits a playful RP event but depends on English names, map coordinates and chat output. The periodic penalty messages can become noisy, and rectangular checkpoint triggers can be missed during quick movement. Neither problem has been confirmed by new gameplay tests.
+The lightweight slash-command approach suits a playful RP event but depends on English names, map coordinates and chat output. The periodic penalty messages can become noisy, and rectangular checkpoint triggers can be missed during quick movement. The rectangles were also invisible, so finding the exact spot was part of the difficulty of a run. None of this has been confirmed by a new gameplay test.
 
-Any future redesign should keep the pleasure of *moving and throwing with friends* ahead of elaborate automation. The desired modern-client version remains dependent on verifying available item mechanics and addon APIs.
+The pleasure of moving and throwing with friends stays ahead of elaborate automation. On WoW Forever, the intended answer to the invisible spots is map pins and one tracked waypoint on top of the same rectangles. [The feasibility note](FOREVER.md) records that plan. It still depends on a live client.

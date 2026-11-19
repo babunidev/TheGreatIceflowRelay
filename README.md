@@ -4,7 +4,7 @@
 
 **Creative:** Babuni  
 **Original addon:** v0.72 · World of Warcraft 1.12 · Lua 5.0  
-**Status:** Legacy game preserved; a modern-client adaptation is intended but not yet assessed or implemented.
+**Status:** Legacy game preserved. A WoW Forever edition is intended, with the same scoring zones plus a visible guide, and is not yet built.
 
 ## How it began
 
@@ -72,14 +72,16 @@ For a compatible **World of Warcraft 1.12** client, place both `TheGreatIceflowR
 
 The manifest declares interface **11200** and version **0.72**. This repository's current snapshot has **not** been retested in a game client during the 2026 documentation reviews. Historical play experience is not a substitute for present-day compatibility testing.
 
-## A future on modern WoW
+## A future on WoW Forever
 
-Bringing this game to a modern World of Warcraft client is an explicit creative goal. Whether the original ball interaction, usable item events, location APIs, and scoring behavior can be reproduced remains to be investigated. The first step is feasibility research, not an assumption that the old Lua file will run unchanged.
+WoW Forever is the client I want this game to reach. Public notes say Iceflow Lake, Brewnall Village, and the Heavy Leather Ball are still there, and that the 1.12 Lua file will not run unchanged. The planned edition keeps the rectangles for scoring and adds map pins plus one tracked waypoint, so a run shows where to stand. World flares, when a group uses them, are an extra mark on the ground. The rectangles still award the shards.
+
+The port is not built, and it has not been played. [The feasibility note](docs/FOREVER.md) and [the roadmap](docs/ROADMAP.md) record what is planned, what still needs a live client, and which ideas remain open.
 
 ## Documentation
 
 - [Concept and origins](docs/CONCEPT.md) · [Gameplay design](docs/DESIGN.md) · [Course and commands](docs/CONTENT.md)
-- [Technical architecture](docs/ARCHITECTURE.md) · [Roadmap](docs/ROADMAP.md) · [Decisions](docs/DECISIONS.md)
+- [Technical architecture](docs/ARCHITECTURE.md) · [WoW Forever feasibility](docs/FOREVER.md) · [Roadmap](docs/ROADMAP.md) · [Decisions](docs/DECISIONS.md)
 - [Development journal](docs/DEVLOG.md) · [Changelog](CHANGELOG.md) · [AI collaboration](docs/AI_COLLABORATION.md) · [Contributor guidance](AGENTS.md)
 
 The [original 2025 README](https://github.com/babunidev/TheGreatIceflowRelay/blob/03b275d/README.md) remains available in Git history. This revision expands the story with additional first-person recollections and a clearer separation between the intended rules and implemented behavior.

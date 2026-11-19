@@ -39,6 +39,7 @@ A small change may need only two or three sentences. Group related micro-steps. 
 | `docs/DEVLOG.md` | How did the work and decisions develop, in the creative's voice? |
 | `docs/DECISIONS.md` | What was accepted, rejected or left unresolved, and why? |
 | `docs/ARCHITECTURE.md` | How does the implemented or proposed system fit together? |
+| `docs/FOREVER.md` | What can a WoW Forever edition actually do, and what still needs a live client? |
 | `docs/DESIGN.md` | What are the visual and interaction choices? |
 | `docs/CONTENT.md` | How is the material organized and published? |
 | `docs/AI_COLLABORATION.md` | How are evidence, roles and attribution handled? |

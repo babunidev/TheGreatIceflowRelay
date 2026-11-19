@@ -12,9 +12,12 @@
 | Keep the full name **The Great Iceflow Relay** | Explicit naming choice, reaffirmed 2026-10-31 | Confirmed |
 | Use the Iceflow Lake / Brewnall Village gnomish setting | Original course and current creative account | Established setting |
 | Reward movement and catches while penalizing holding and proximity | Original game rules; current scoring source | Established concept |
-| Explore bringing the game to a modern World of Warcraft client | Explicit direction, 2026-11-01 | **Intended**, feasibility not yet assessed |
+| Explore bringing the game to a modern World of Warcraft client | Explicit direction, 2026-11-01 | Direction set. The client was named on 2026-11-19. See the Forever rows. |
+| Host the next edition on **WoW Forever**, in files separate from the preserved 1.12 addon | Named as the target on 2026-11-19 | **Intended.** The port is not built. A live client has not been surveyed. |
+| Keep the rectangular scoring zones, and show where they are | Checkpoints were hard to find during play; visible guidance was requested on 2026-11-19 | **Intended** gameplay change. Map pins and one tracked waypoint. Not implemented. |
+| Treat world flares as a hand-placed group mark | Public API notes: a flare is placed by clicking the ground, and an addon cannot read its position back | Recorded with the guidance decision. Flares sit beside the rectangles. They do not award shards. |
 
-The creative decisions above are not claims that every rule is enforced perfectly by v0.72.
+The creative decisions above are not claims that every rule is enforced perfectly by v0.72. Public API notes are not a playtest.
 
 ## Implemented technical approaches
 
@@ -36,16 +39,17 @@ On **11 September 2025**, the earliest checkpoint geometry was triangular; subse
 
 ## Questions still open
 
-- Which modern WoW client should host the next version, and does it retain a suitable ball item and throw interaction?
-- Can item receipts, map locations and close-range detection be implemented reliably in that client?
-- Should the four middle checkpoints become mandatory or ordered?
-- Should penalty timing, chat volume or score sharing change?
-- What compromises preserve the original enjoyable game when some 1.12 assumptions no longer hold?
+- The live Forever survey is still open: exact build, TOC suffix, whether the v0.72 rectangles still match, a real ball throw, distance yards, party map links, and flare permissions. Public item pages describe item 18662 as throwable. That description has not been tried in a client.
+- Should the four middle checkpoints become mandatory or ordered? The intended guide points at the nearest remaining stop, and a different order still counts.
+- Should penalty timing, the “Distance ok!” line, or score sharing change?
+- What further compromises preserve the original game when a live client disagrees with the public API notes?
 
-These are **undecided**. Investigating a modern edition does not approve any particular redesign.
+These are **undecided**. Choosing Forever, and choosing to show the rectangles, does not approve a required route, new penalty timing, a scan of every teammate, or a shared scoreboard. The feasibility detail is in [FOREVER.md](FOREVER.md).
 
 ## Documentation decisions
 
 **2026-10-26:** AI-assisted reconstruction separated source behavior from historical intention without modifying gameplay.
 
 **2026-11-01:** The creative supplied additional first-person origin details and confirmed an intention to investigate a modern-client edition. AI revised the documentation accordingly; gameplay behavior and compatibility remain untested.
+
+**2026-11-19:** WoW Forever was named as the intended client, and visible guidance on top of the existing rectangles was accepted as the gameplay change for that edition. Cursor (Grok 4.7) researched public APIs and drafted the roadmap and feasibility note. No Lua or TOC file changed, and no client was tested.

@@ -26,7 +26,7 @@ The creative conceived the game and directed its rules. AI assisted with Lua imp
 - Its checkpoint/ball/penalty loop polls approximately every two seconds; per-player scores are local.
 - Catch recognition uses `ITEM_PUSH` and a throwing-ball icon check; inventory checks use the English item name.
 - Distance penalties depend on the current target, not a scan of the group.
-- The future modern-client edition is a **creative goal**, not established API compatibility. Verify the intended client, available ball interaction and restrictions before proposing an implementation.
+- The future edition is a **creative goal for WoW Forever**, not established API compatibility. Verify the live client, available ball interaction, and restrictions before implementing. The feasibility note is [docs/FOREVER.md](docs/FOREVER.md).
 
 ## Workflow and verification
 

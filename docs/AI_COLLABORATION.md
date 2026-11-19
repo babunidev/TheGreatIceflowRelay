@@ -32,3 +32,9 @@ Historical gaps should be named as **retrospective reconstruction**, never fille
 ## 18 November 2026 — Collaboration record review
 
 At my request, Codex (GPT-6) revised this record for first-person voice and checked the attribution against the available repository documentation. Where an earlier AI tool or model is missing from the record, its identity remains unconfirmed.
+
+## 19 November 2026 — Forever feasibility
+
+The choice of WoW Forever, and the wish for markers players can see at the checkpoints, came from me. Cursor (Grok 4.7) researched public addon APIs, item listings, and zone comparisons, then drafted the roadmap, [the feasibility note](FOREVER.md), and the related updates. That work separated three marker systems: personal pins and one tracked waypoint, clickable party links, and world flares that a player places by hand. It also recorded the calls the 1.12 file cannot make on Forever.
+
+No gameplay file changed, and no client test was run. Where a wiki lists an API for Forever 1.60.1, the note says so. Where the behavior still depends on standing in the zone, the note leaves it for a later survey.
