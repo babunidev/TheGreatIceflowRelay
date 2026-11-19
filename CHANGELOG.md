@@ -2,6 +2,10 @@
 
 **Creative:** Babuni
 
+## 2026-11-19 — human–AI collaboration record
+
+- Rewrote `docs/AI_COLLABORATION.md` to the shared text used in all of Babuni's repositories: how Babuni works with AI, who did what (the tools and recorded models named in this project's records) and where the details are. The earlier, longer version stays in the Git history. Claude Code (Claude Opus 5.5).
+
 ## 2026-11-19 — WoW Forever roadmap
 
 - Named WoW Forever as the intended client for a separate edition.
